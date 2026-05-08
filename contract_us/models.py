@@ -9,6 +9,6 @@ class ContractUs(models.Model):
     def __str__(self):
         return self.name
 
-    def Meta():
+    class Meta():
         verbose_name_plural = "contract us"
     
