@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Doctor, Designation, AvailableTime, Specialization
+from .models import Doctor, Designation, AvailableTime, Specialization, Review
 
 # Register your models here.
 class SpeacializationAdmin(admin.ModelAdmin):
@@ -12,3 +12,4 @@ admin.site.register(Doctor)
 admin.site.register(Designation)
 admin.site.register(AvailableTime)
 admin.site.register(Specialization)
+admin.site.register(Review)
