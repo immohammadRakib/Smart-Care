@@ -9,7 +9,7 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
     #custom query making
     def get_queryset(self):
-        query = super().get_queryset()
+        queryset = super().get_queryset()
         patient_id = self.request.query_params.get('patient_id')
         if patient_id:
             queryset = queryset.filter(patient_id=patient_id)
