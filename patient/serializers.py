@@ -24,9 +24,10 @@ class RegistrationSeralizer(serializers.ModelSerializer):
         if(password != password2):
             raise serializers.ValidationError({'Error' : 'Password Doesnt match'})
         if User.objects.filter(email=email).exists():
-            raise serializers.ValidationError({'Error' : 'This Password Alredy Taken'})
+            raise serializers.ValidationError({'Error' : 'This Email Alredy Taken'})
         
         account = User(username=username, email=email)
         account.set_password(password)
+        account.is_active = False
         account.save()
         return account

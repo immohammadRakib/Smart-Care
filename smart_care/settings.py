@@ -12,6 +12,15 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 
+import environ
+env = environ.Env()
+environ.Env.read_env()
+
+# import os
+# from dotenv import load_dotenv
+# load_dotenv() # এটি .env ফাইল থেকে তথ্য টেনে আনবে
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -124,5 +133,12 @@ STATIC_URL = "static/"
 MEDIA_URL = '/media/'
 
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = env('EMAIL')  # সরাসরি আপনার জিমেইল লিখুন
+EMAIL_HOST_PASSWORD = env('EMAIL_PASSWORD') # আপনার ১৬ ডিজিটের অ্যাপ পাসওয়ার্ড (স্পেস ছাড়া)
+# DEFAULT_FROM_EMAIL = # এটিও সরাসরি আপনার জিমেইল দিন
 
